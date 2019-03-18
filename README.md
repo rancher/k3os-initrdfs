@@ -1,6 +1,6 @@
-# The RootFS for K3OS
+# The InitrdFS for K3OS
 
-This repo contains the system programs for K3OS. It is built from [buildroot](https://buildroot.org/).
+This repo contains the system programs for K3OS initrd. It is built from [buildroot](https://buildroot.org/).
 
 ## Building
 
