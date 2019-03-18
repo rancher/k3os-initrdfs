@@ -1,6 +1,6 @@
 #
 # Automatically generated file; DO NOT EDIT.
-# Buildroot 2018.02.7 Configuration
+# Buildroot 2018.02.11 Configuration
 #
 BR2_HAVE_DOT_CONFIG=y
 BR2_HOST_GCC_AT_LEAST_4_5=y
@@ -9,6 +9,8 @@ BR2_HOST_GCC_AT_LEAST_4_7=y
 BR2_HOST_GCC_AT_LEAST_4_8=y
 BR2_HOST_GCC_AT_LEAST_4_9=y
 BR2_HOST_GCC_AT_LEAST_5=y
+BR2_HOST_GCC_AT_LEAST_6=y
+BR2_HOST_GCC_AT_LEAST_7=y
 
 #
 # Target options
@@ -100,7 +102,10 @@ BR2_GNU_MIRROR="http://ftpmirror.gnu.org"
 BR2_LUAROCKS_MIRROR="http://rocks.moonscript.org"
 BR2_CPAN_MIRROR="http://cpan.metacpan.org"
 BR2_JLEVEL=0
-# BR2_CCACHE is not set
+BR2_CCACHE=y
+BR2_CCACHE_DIR="$(HOME)/.buildroot-ccache"
+BR2_CCACHE_INITIAL_SETUP=""
+BR2_CCACHE_USE_BASEDIR=y
 # BR2_ENABLE_DEBUG is not set
 BR2_STRIP_strip=y
 BR2_STRIP_EXCLUDE_FILES=""
@@ -126,24 +131,14 @@ BR2_COMPILER_PARANOID_UNSAFE_PATH=y
 #
 # Security Hardening Options
 #
-# BR2_SSP_NONE is not set
-# BR2_SSP_REGULAR is not set
-# BR2_SSP_STRONG is not set
-# BR2_SSP_ALL is not set
 
 #
 # Stack Smashing Protection needs a toolchain w/ SSP
 #
-# BR2_RELRO_NONE is not set
-# BR2_RELRO_PARTIAL is not set
-# BR2_RELRO_FULL is not set
 
 #
 # RELocation Read Only (RELRO) needs shared libraries
 #
-# BR2_FORTIFY_SOURCE_NONE is not set
-# BR2_FORTIFY_SOURCE_1 is not set
-# BR2_FORTIFY_SOURCE_2 is not set
 
 #
 # Fortify Source needs a glibc toolchain and optimization
@@ -162,7 +157,6 @@ BR2_TOOLCHAIN_BUILDROOT=y
 #
 BR2_TOOLCHAIN_BUILDROOT_VENDOR="buildroot"
 BR2_TOOLCHAIN_BUILDROOT_UCLIBC=y
-# BR2_TOOLCHAIN_BUILDROOT_GLIBC is not set
 
 #
 # glibc needs a toolchain w/ dynamic library, kernel headers >= 3.2
@@ -184,7 +178,7 @@ BR2_TOOLCHAIN_BUILDROOT_LIBC="uclibc"
 BR2_KERNEL_HEADERS_4_14=y
 # BR2_KERNEL_HEADERS_4_15 is not set
 # BR2_KERNEL_HEADERS_VERSION is not set
-BR2_DEFAULT_KERNEL_HEADERS="4.14.76"
+BR2_DEFAULT_KERNEL_HEADERS="4.14.99"
 BR2_PACKAGE_LINUX_HEADERS=y
 
 #
@@ -205,6 +199,7 @@ BR2_UCLIBC_TARGET_ARCH="x86_64"
 #
 # Binutils Options
 #
+BR2_PACKAGE_HOST_BINUTILS_SUPPORTS_CFI=y
 # BR2_BINUTILS_VERSION_2_28_X is not set
 # BR2_BINUTILS_VERSION_2_29_X is not set
 BR2_BINUTILS_VERSION_2_30_X=y
@@ -317,7 +312,6 @@ BR2_TARGET_GENERIC_PASSWD_MD5=y
 BR2_TARGET_GENERIC_PASSWD_METHOD="md5"
 # BR2_INIT_BUSYBOX is not set
 # BR2_INIT_SYSV is not set
-# BR2_INIT_SYSTEMD is not set
 
 #
 # systemd needs a glibc toolchain, headers >= 3.10
@@ -326,7 +320,6 @@ BR2_INIT_NONE=y
 # BR2_ROOTFS_DEVICE_CREATION_STATIC is not set
 BR2_ROOTFS_DEVICE_CREATION_DYNAMIC_DEVTMPFS=y
 # BR2_ROOTFS_DEVICE_CREATION_DYNAMIC_MDEV is not set
-# BR2_ROOTFS_DEVICE_CREATION_DYNAMIC_EUDEV is not set
 
 #
 # eudev needs a toolchain w/ wchar, dynamic library
@@ -543,7 +536,7 @@ BR2_PACKAGE_PULSEAUDIO_HAS_ATOMIC=y
 #
 # unrar needs a toolchain w/ C++, wchar, threads
 #
-BR2_PACKAGE_XZ=y
+# BR2_PACKAGE_XZ is not set
 # BR2_PACKAGE_ZIP is not set
 # BR2_PACKAGE_ZSTD is not set
 
@@ -1506,7 +1499,7 @@ BR2_PACKAGE_WEBRTC_AUDIO_PROCESSING_ARCH_SUPPORTS=y
 #
 
 #
-# libsquish needs a toolchain w/ C++, dynamic library
+# libsquish needs a toolchain w/ C++
 #
 
 #
@@ -1549,7 +1542,7 @@ BR2_PACKAGE_BOTAN_ARCH_SUPPORTS=y
 # BR2_PACKAGE_LIBGCRYPT is not set
 BR2_PACKAGE_LIBGPG_ERROR_ARCH_SUPPORTS=y
 # BR2_PACKAGE_LIBGPG_ERROR is not set
-BR2_PACKAGE_LIBGPG_ERROR_SYSCFG="x86_64-pc-linux-gnu"
+BR2_PACKAGE_LIBGPG_ERROR_SYSCFG="x86_64-unknown-linux-gnu"
 # BR2_PACKAGE_LIBGPGME is not set
 # BR2_PACKAGE_LIBKCAPI is not set
 # BR2_PACKAGE_LIBKSBA is not set
